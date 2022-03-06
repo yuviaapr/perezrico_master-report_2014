@@ -17,4 +17,4 @@ When the setup is ready, you would just need to run the following on the command
 `pdflatex M2_report_PEREZ-RICO.tex`
 
 ## License
-Licenced under the MIT License
+Licenced under the MIT License.
