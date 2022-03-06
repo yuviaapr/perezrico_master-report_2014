@@ -1,0 +1,95 @@
+\documentclass[a4paper,12pt,oneside]{article}
+% Palatino font
+\usepackage{graphicx,apalike,hyperref,rotating,longtable,pslatex,sectsty}
+\sectionfont{\fontsize{12}{15}\selectfont}
+\subsectionfont{\fontsize{12}{15}\selectfont}
+\renewcommand{\baselinestretch}{1.5}
+\usepackage[nottoc,notlot,notlof]{tocbibind}
+\usepackage[
+    top    = 2.00cm,
+    bottom = 2.00cm,
+    left   = 2.50cm,
+    right  = 2.50cm]{geometry}
+\hypersetup{
+    colorlinks,%
+    citecolor=black,%
+    filecolor=black,%
+    linkcolor=black,%
+    urlcolor=black,%
+    pdfmenubar=true
+}
+% Change line spacing for figure captions
+\usepackage{caption,setspace}
+\captionsetup[figure]{labelfont=bf,labelsep=period}
+
+\author{Yuvia Alhel\'i P\'erez Rico}
+\begin{document}
+
+	\begin{titlepage}
+		\begin{minipage}{0.25\textwidth}
+			\begin{flushleft}
+				\includegraphics[width=4cm,height=3cm]{./figures/ens1.jpg}
+			\end{flushleft}
+		\end{minipage}
+		\begin{minipage}{0.75\textwidth}
+			\begin{center}		
+				\'ECOLE NORMALE SUP\'ERIEURE
+				\rule{11.5cm}{0.25mm}\vspace{-4.5mm}
+				\rule{11.5cm}{1.5mm}\\[1.5mm]
+				INTERDISCIPLINARY MASTER IN LIFE SCIENCES\\\vspace{0.7mm}IMaLiS year 2
+			\end{center}
+		\end{minipage}
+		\begin{minipage}{0.25\textwidth}
+			\vspace{0.4cm}
+			\begin{center}
+				\rule{0.25mm}{0.85\textheight}\hspace{0.5mm}
+				\rule{1.5mm}{0.85\textheight}\hspace{0.5mm}
+				\rule{0.25mm}{0.85\textheight}
+			\end{center}
+		\end{minipage}	
+		\begin{minipage}{0.85\textwidth}
+			\begin{center}
+				\vspace{3.5cm}
+				\textbf{Comparative Analysis of Enhancers and Super-Enhancers\\Reveals Conserved Elements in Vertebrate Genomes}\\[1cm]
+				by\\[0.5cm]YUVIA ALHEL\'I P\'EREZ RICO\\[3.5cm]
+				A REPORT SUBMITTED\\\vspace{0.7mm}IN PARTIAL FULFILLMENT\\\vspace{0.7mm}OF THE REQUIREMENTS FOR THE DEGREE OF\\\vspace{0.7mm}\emph{MASTER IN LIFE SCIENCES}\\[3cm]
+				SUPERVISOR: ALENA SHKUMATAVA\\\vspace{0.7mm}LONG INTERVENING NONCODING RNAs\\IN VERTEBRATE DEVELOPMENT\\INSTITUT CURIE\\[0.3cm]
+				\begin{center}
+					\begin{tabular}{l r}
+						PARIS, FRANCE\hspace{2cm} & JUNE 2014
+					\end{tabular}
+				\end{center}
+			\end{center}
+		\end{minipage}
+
+	\end{titlepage}
+
+	\newpage
+
+	\begin{center}
+		\textbf{Abstract}
+	\end{center}
+		Genome-wide analyses of \textit{cis}-regulatory elements have highlighted the relevance of these elements in global transcriptional regulation. Among these \textit{cis}-elements enhancers have arisen as key regulators of gene expression. Recent publications have reported the presence of stretch enhancers in privileged regions of hyperactive chromatin in mammalian cells and tissues. Clusters of stretch enhancers, referred as super-enhancers, are characterized by a high abundance of master transcription factors, transcriptional coactivators and chromatin remodelers. Strikingly, super-enhancer targets include genes important for the establishment of cell identity, suggesting that super-enhancers could operate at the nexus of transcriptional networks that define cell states. Despite their important regulatory function, it is not known if super-enhancers exist outside of mammals. In this study, we generated enhancer maps for zebrafish and identified for the first time super-enhancers in a non-mammalian organism. In addition, we identified new enhancers and super-enhancers in mouse and human cells as well as adult tissue. Our cross-species comparison showed that zebrafish super-enhancers share key features with mammalian super-enhancers such as extension and association with identity genes. Moreover, we found that a considerable number of  enhancers and super-enhancers are conserved across distant vertebrate genomes. The enhancer roadmaps generated here set the stage for future functional and structural enhancer studies, particularly those focusing on non-mammalian vertebrates.\\
+
+	\newpage
+
+	\tableofcontents
+
+	\newpage
+
+	\input{Introduction}
+
+	\input{Materials_and_Methods}
+
+	\input{Results}
+
+	\input{Conclusions_and_Outlook}
+
+	\section*{Acknowledgements}
+
+		I would like to thank my family and friends for all their support and encouragement during the last months. I would especially like to thank \textit{"Los Morros"} for sharing wonderful adventures with me in Paris. Moreover, I am very grateful to Alena Shkumatava for giving me the opportunity to perform my internship in her inspiring team at the Institut Curie. I would also like to thank members of the Shkumatava lab for helpful discussions, and especially Allison Mallory for comments on the manuscript. Finally, I would like to thank Valentina Boeva and Emmanuel Barillot for their supervision in the development of this project.\\
+
+	\input{Bibliography}
+
+\end{document}
+
