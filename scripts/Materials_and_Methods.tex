@@ -1,0 +1,26 @@
+\section{Materials and Methods}
+
+	\subsection{Chomatin immunoprecipitation sequencing (ChIP-seq)}
+
+		Whole brains were dissected from adult zebrafish of mixed gender and separated in two biological replicates. For the chromatin immunoprecipitation assays around \(2.5x10^{8}\) cells were used per replicate. Cells were crosslinked with 1\% formaldehyde for 15 minutes and subsequently formaldehyde was quenched with glycine (0.125 $M$). Chromatin was sonicated and immunoprecipitated with 100 \(\mu l\) of antibody/magnetic bead mix. To prepare this mix 6 \(\mu g\) of H3K27ac antibody (Abcam, ab4729) were incubated with magnetic beads over night at $4\,^{\circ}\mathrm{C}$. For each ChIP assay 50 \(\mu l\) of sonicated chromatin was kept as input DNA. The immunoprecipitated chromatin and inputs were reverse-crosslinked. All samples were treated with RNase A and proteinase K and resuspended in 30 \(\mu l\) of 10 $mM$ Tris-HCl pH 8. DNA fragments with an average size of 350 bp were used for single-end library preparation following Illumina protocols. All libraries were sequenced twice in a HiSeq 2500 machine.\\
+
+	\subsection{Analysis of ChIP-seq data sets}
+
+		Libraries were mapped with \texttt{Bowtie 2} (Langmead and Salzberg, 2012) to their corresponding reference genome (danRer7 for zebrafish, mm10 for mouse and hg38 for human) allowing up to 1 mismatch in the seed and saving alignments as SAM files. SAM files were converted to BAM files with \texttt{samtools} (Li et al., 2009). Given that no peak caller able to handle biological replicates has been published, BAM files from technical and biological replicates were merged. BAM files were filtered to discard alignments with mapping quality $<20$ and converted to BED files using \texttt{BEDTools} (Quinian and Hall, 2010). Peak calling was performed with \texttt{SICER} (Zang et al., 2009) setting window size to 200, redundancy threshold to 1, gap size to 600, false discovery rate to 0.05 and changing the fragment size accordingly to the data set analyzed. All data sets were analyzed using input libraries as control, except the dome-stage data set for zebrafish, for which no input library was available. WIG files for ChIP-seq libraries were created with \texttt{FindPeaks} (Fejes et al., 2008) using the \textsl{-duplicatefilter} option and modifying the \textsl{-dist\_type} parameter for each data set using their respective fragment size. The integrative genomics viewer (\texttt{IGV}) (Thorvaldsd\'ottir et al., 2012) was used to visualize WIG and BED files.\\
+
+	\subsection{Super-enhancer identification and generation of metagenes}
+
+		BAM files from \texttt{Bowtie 2} were filtered to discard reads mapping to scaffolds, sorted and indexed. The \texttt{ROSE} program (Whyte et al., 2013; Lov\'en et al., 2013) was used for the super-enhancer calling indicating filtered BAM files for ChIP-seq and input libraries, H3K27ac enrichment regions obtained with \texttt{SICER} and an exclusion zone of 4 Kb around the TSSs. Metagene representations for typical-enhancers and super-enhancers were obtained as described in Whyte et al. (2013) by applying the "bamToGFF" function of \texttt{ROSE}.\\
+
+	\subsection{Distribution of enhancers around TSS and gene annotation}
+
+		We performed gene annotation for enhancers and super-enhancers and obtained their distribution around TSS using specific functions for histone marks from the web service \texttt{nebula} (Boeva et al., 2012). The function "Get peak distribution around TSS" was applied with default parameters. For gene annotation the function "Annotation of genes with ChIP-seq peaks" was implemented changing the definition of enhancer to $-50000$ bp up-stream TSS and the rest of the parameters were kept as default.\\
+
+	\subsection{Estimation of shared regions}
+
+		For comparisons of enhancers and super-enhancers between different data sets from the same organism we used "bedtools intersect" and "bedtools multiinter". These functions were run with default parameters, just for bedtools intersect the reporting mode was changed to \textsl{-wao}.\\
+
+	\subsection{Gene Ontology analysis}
+
+		Functional annotation for super-enhancers was performed with \texttt{DAVID} bioinformatic resources (Dennis et al., 2003). For all data sets the reference genome was used as background for the analysis. To compare super-enhancer functions across vertebrates we focused on Gene Ontology (GO) terms for biological processes.\\
+
